@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="script.js" defer></script>
+	<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header id="topBar">
+<button class="topBarButton" id="openHelp" onclick="openHelp()"> ≡ </button>
+<button class="topBarButton" id="openInstructions" onclick="openinstructions()"> ⓘ </button>
+</header>
+<dialog class="wholeScreen" id="instructions" open>
+<div id="mainHeading">
+<center>
+	<span id="Title">Ulamolohiya</span><br>
+	<i>A food guessing game</i><br><br>
+</center>
+	<b>How to play</b><br>
+	(1) Input a filipino dish<br>
+	(2) Four main ingredients from the dish will show up<br>
+	(3) <b>Green</b> ingredients mean the dish has the ingredient, <b>Red</b> means it doesn't have it<br><br>
+<section id="examplefood">
+<div id="infocontainer"><div class="example" style="background-color: lightcoral;">Pork</div><div class="example" style="background-color: lightgreen;">Soy sauce</div><div class="example" style="background-color: lightgreen;">Bay leaf</div><div class="example" style="background-color: lightcoral;">Vinegar</div></div><br>
+This means that the food has <b>Soy Sauce</b> and <b>Bay Leaves</b> but lacks <b>Pork</b> and <b>Vinegar</b>.
+</section><br>
+	(4) You have <b>seven</b> tries to guess the food<br><br>
+</div>
+</dialog>
+<dialog class="wholeScreen" id="information">
+<div id="helpHeading">
+	<span id="SubTitle"><b>Need some help...?</span></b><br>Note that <i>adobo</i> and <i>sinigang</i> are both <b>pork</b>, and <i>nilaga</i> is <b>beef</b>.<br>Also, <i>ginataan</i> is the <b>squash kind</b>, so there's no meat.
+<br><br>
+A strategy you can employ is to rule out the four main meats, being <b>pork</b>, <b>beef</b>, <b>chicken</b>, and <b>fish</b>.<br>
+You can also try ruling out various clusters of food like those predominantly with <b>soy sauce</b> or <b>tomato sauce</b>.
+</p>
+<i>Still need help...?<br>Here's the full list of supported food.<br><br></i>
+<div id="food">.</div>
+</div>
+</dialog>
+
+<section id="answerHeading">
+<center>
+<span id="SubTitle">Ulamolohiya</span><br><br>
+<p id="answerbox">.</p>
+<p id="demo">&nbsp;</p>
+<input type="text" id="answer" list="food"><br>
+<button id="answerbutton" onclick="input(answer.value)"> Submit </button><br><br>
+</center>
+</section>
+</body>
+</html>

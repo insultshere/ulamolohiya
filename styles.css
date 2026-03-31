@@ -1,0 +1,158 @@
+#mainHeading {
+	background-color:Lavender;
+	color:Black;
+	padding:2%;
+	width:25%;
+	margin:auto;
+	border-radius:5px;
+}
+
+.wholeScreen {
+	width:100%;
+	background-color:rgba(0,0,0,0.5);
+	height:100%;
+	outline-width:0px;
+	margin-top:0px;
+	position:fixed;
+	top:0px;
+}
+
+#helpHeading {
+	background-color:#E6FAE6;
+	color:Black;
+	padding:2%;
+	width:25%;
+	margin:auto;
+	border-radius:5px;
+}
+
+#Title {
+	font-family:Georgia;
+	font-size:40px;
+}
+
+#answerHeading {
+	background-color:#FFFFFF;
+	padding-top:6em;
+}
+
+#SubTitle {
+	font-family:Georgia;
+	font-size:20px;
+}
+
+#container {
+	display:grid;
+	align-content:center;
+	column-gap:1%;
+	grid-template-columns: 28% 17% 17% 17% 17%;
+	vertical-align:middle;
+	width:40%;
+	margin-bottom:5px;
+	height:3em;
+}
+
+#topBar {
+	width:96%;	
+	height:48px;
+	background-color:#DDDDDD;
+	top:0px;
+	left:0px;
+	position:absolute;
+	padding-left:2%;
+	padding-right:2%;
+}
+
+#food {
+	background-color:#FFFFFF;
+	border-radius:3px;
+	padding-left:2em;
+	overflow:auto;
+	height:11em;
+}
+
+#answer {
+	font-size:1.1em;
+	border-radius:3px;
+	background-color:#EEEEEE;
+	border-color:#DDDDDD;
+	border-style:solid;
+	text-align:center;
+	margin-bottom:0.5em;
+}
+
+#answerbutton {
+	font-size:1.1em;
+	border-radius:3px;
+	background-color:#E6FAE6;
+	border-color:#D1E8D1;
+	border-style:solid;
+	text-align:center;
+}
+
+#examplefood {
+	background-color:#EEEEEE;
+	border-radius:3px;
+	padding:1em;
+}
+
+#infocontainer {
+	display:grid;
+	column-gap:1%;
+	text-align:center;
+	grid-template-columns: 24% 24% 24% 25%;
+	vertical-align:middle;
+	width:100%;
+	margin-bottom:1px;
+}
+
+.topBarButton{
+	height:48px;
+	width:48px;
+	font-size:2em;
+	background-color:rgba(0,0,0,0);
+	border:0px;
+	float:right;
+	font-family:Monospaced;
+}
+
+.foodholder{
+	background-color:#FFFFFF;
+	outline-style:solid;
+	outline-width:2px;
+	outline-color:#DDDDDD;
+	border-radius:1px;
+	overflow-wrap:anywhere;
+	height:3em;
+	align-content:center;
+}
+
+.example{
+	background-color:#FFFFFF;
+	border-radius:1px;
+	overflow-wrap:anywhere;
+}
+
+body {
+	color:Black;
+	font-family:Tahoma;
+}
+
+@media only screen and (max-width: 985px) {
+	#container {
+		width:100%;
+		column-gap:2%;
+		grid-template-columns: 24% 17% 17% 17% 17%;
+	}
+	#mainHeading {
+		width:88%;
+		margin:0px;
+	}
+	#helpHeading {
+		width:88%;
+		margin:0px;
+	}
+	#food {
+		height:8em;
+	}
+}
