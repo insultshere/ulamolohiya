@@ -1,31 +1,27 @@
 //input all the things
-const adobo = new Set(["Pork","Soy sauce","Bay leaf","Vinegar"]);
+const adobo = new Set(["Pork","Soy sauce","Bay leaf","Peppercorn"]);
 const bistek = new Set(["Beef","Soy sauce","Calamansi","Onion"]);
 const porksteak = new Set(["Pork","Soy sauce", "Calamansi","Onion"]);
 const salpicao = new Set(["Beef","Garlic","Soy sauce","Oyster sauce"])
-
 const bulalo = new Set(["Beef","Corn","Cabbage","Peppercorn"]);
 const pesa = new Set(["Fish","Pechay","Ginger","Cabbage"]);
 const paksiw = new Set(["Fish", "Vinegar", "Ginger","Garlic"]);
 const sinigang = new Set(["Pork","Tamarind","Tomato","Gabi"]);
 const tinola = new Set(["Chicken","Papaya","Ginger","Malunggay"]);
 const nilaga = new Set(["Beef", "Pechay", "Cabbage","Peppercorn"])
-
 const caldereta = new Set(["Beef","Liver spread", "Tomato sauce","Potato"]);
 const mechado = new Set(["Beef","Calamansi","Tomato sauce","Potato"]);
 const afritada = new Set(["Chicken","Bell pepper","Tomato sauce","Potato"]);
 const menudo = new Set(["Pork","Bell pepper", "Tomato sauce","Potato"]);
-const asado = new Set(["Pork","Soy sauce","Tomato sauce","Sugar"]);
+const asado = new Set(["Pork","Soy sauce","Tomato sauce","Muscovado"]);
 const sarciado = new Set(["Fish", "Tomato", "Onion","Egg"])
 const pochero = new Set(["Beef", "Saba", "Tomato sauce","Cabbage"])
-
 const ginataan = new Set(["Squash","Coconut milk","Green bean","Ginger"]);
 const bicolexpress = new Set(["Pork","Coconut milk","Chili","Bagoong"]);
 const laing = new Set(["Taro","Coconut milk","Chili","Bagoong"]);
 const picadillo = new Set(["Beef", "Tomato", "Potato","Carrot"])
 const bopis = new Set(["Pork", "Carrot", "Chili","Vinegar"])
 const pinakbet = new Set(["Bagoong", "Green bean", "Squash","Eggplant"])
-
 const dinuguan = new Set(["Pork", "Blood", "Chili","Vinegar"]);
 const karekare = new Set(["Pork", "Peanut", "Pechay","Eggplant"])
 const kinilaw = new Set(["Fish", "Vinegar", "Calamansi","Ginger"]);
@@ -33,7 +29,22 @@ const binagoongan = new Set(["Pork","Bagoong","Tomato","Vinegar"]);
 const dinakdakan = new Set(["Pork","Vinegar","Chili","Mayonnaise"]);
 const igado = new Set(["Pork","Vinegar","Bell pepper","Green pea"]);
 
+const humba = new Set(["Pork","Tausi","Vinegar","Muscovado"]);
+const kinunot = new Set(["Fish","Coconut milk","Malunggay","Chili"]);
+const pinangat = new Set(["Fish","Bilimbi","Tomato","Peppercorn"]);
+const sinanglay = new Set(["Fish","Coconut milk","Pechay","Tomato"]);
+const dinengdeng = new Set(["Fish","Bagoong","Bitter gourd","Malunggay"]);
+const papaitan = new Set(["Beef","Bile","Ginger","Calamansi"]);
+const laswa = new Set(["Squash","Eggplant","Green bean","Okra"]);
+
 const foods = [
+	["humba",humba],
+	["kinunot",kinunot],
+	["pinangat",pinangat],
+	["sinanglay",sinanglay],
+	["dinengdeng",dinengdeng],
+	["papaitan",papaitan],
+	["laswa",laswa],
 	["adobo",adobo],
 	["bistek",bistek],
 	["pork steak",porksteak],
@@ -81,8 +92,14 @@ let curfoodid;
 let index=0;
 let redo=false;
 function input(ans) {
+	curval=""
+	trunc.forEach(check);
 	document.getElementById("demo").innerHTML = "&nbsp;";
-	ans = runningArr[0];
+	if(ans==0){
+		ans = runningArr[0];
+	}else{
+		console.log(ans.size);
+	}
 	if(redo){
 		number = Math.floor(Math.random() * (foods.length))
 		chosenanswer = foods[number][0];
@@ -145,7 +162,7 @@ function usablelist() {
 	let curam="";
 	trunc.forEach(transcribe);
 	function transcribe(value,index){
-		curam += "<div class='foodOption' id=\'"+value+"\'>"+"<span class='foodTitle'>"+value+"</span><span class='foodDesc'><br>";
+		curam += "<button onclick=\'input(\""+value+"\")\' class='foodOption' id=\'"+value+"\'>"+"<span class='foodTitle'>"+value+"</span><span class='foodDesc'><br>";
 		let curfood = foods[index][1];
 		let i = 0;
 		/*for (const x of curfood) {
@@ -207,7 +224,7 @@ let curval;
 let runningArr = [];
 answerInput.addEventListener("keyup", function (event) {
 	runningArr = [];
-	curval = answerInput.value;
+	curval = answerInput.value.toLowerCase().trim();
 	trunc.forEach(check);
 });
 
@@ -224,7 +241,7 @@ function check(value) {
 		}
 	}
 	if (curval==""){
-		document.getElementById(value).style.display="none";
+		document.getElementById(value).style.display="block";
 	}
 };
 
