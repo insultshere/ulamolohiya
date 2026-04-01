@@ -8,9 +8,15 @@
 }
 
 .foodOption {
-	height:1.4em; /*2.2em if easy mode 1.4em if hard*/
+	min-height:1.4em; /*2.3em if easy mode 1.4em if hard*/
+	font-size:1em;
 	width:100%;
-	display:none;
+	display:block;
+	border-style:none;
+	text-align:left;
+	height:auto;
+	padding:0px;
+	border-width:0px;
 }
 
 .foodTitle {
@@ -196,10 +202,16 @@ body {
 }
 
 @media only screen and (max-width: 985px) {
+	#playField {
+		padding-top:4em;
+	}
 	#container {
 		width:100%;
 		column-gap:2%;
-		grid-template-columns: 24% 17% 17% 17% 17%;
+		grid-template-columns: 16% 19% 19% 19% 19%;
+		font-size:3.35vw;
+		height:9vw;
+		margin-bottom:1.5vw;
 	}
 	#resultSection {
 		width:100%;
@@ -222,7 +234,7 @@ body {
 		width:88%;
 		margin:0px;
 	}
-	#food {
-		height:8em;
+	#foodList {
+		max-height:5.3em;
 	}
 }
