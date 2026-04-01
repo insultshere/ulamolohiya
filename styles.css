@@ -7,6 +7,23 @@
 	border-radius:5px;
 }
 
+.foodOption {
+	height:1.4em; /*2.2em if easy mode 1.4em if hard*/
+	width:100%;
+	display:none;
+}
+
+.foodTitle {
+	font-weight:bold;
+	font-size:1em;
+	font-family:Georgia;
+}
+
+.foodDesc {
+	font-style:oblique;
+	font-size:0.6em;
+}
+
 .wholeScreen {
 	width:100%;
 	background-color:rgba(0,0,0,0.5);
@@ -28,17 +45,76 @@
 
 #Title {
 	font-family:Georgia;
-	font-size:40px;
+	font-size:2.5em;
 }
 
-#answerHeading {
+#playField {
 	background-color:#FFFFFF;
 	padding-top:6em;
+	width:100%;
+}
+
+#resultSection {
+	background-color:#FFFFFF;
+	width:40%;
+	margin-left:12.5%;
+	margin-right:5%;
+	float:left;
+}
+
+
+#answerSection {
+	background-color:#FFFFFF;
+	width:30%;
+	margin-right:12.5%;
+	padding-top:5em;
+	float:left;
+}
+
+#inputSection {
+	background-color:#FFFFFF;
+	width:60%;
+	margin-right:5%;
+	padding-bottom:5%;
+	border-radius:5px;
+	float:left;
+}
+
+#foodList {
+	background-color:#EEEEEE;
+	border:1.6px;
+	border-style:solid;
+	border-color:#EEEEEE;
+	margin-top:0.2em;
+	max-height:10em;
+	padding:2px;
+	overflow:auto;
+	text-align:left;
+	width:100%;
+}
+
+#answer {
+	font-size:1.1em;
+	border-radius:3px;
+	background-color:#EEEEEE;
+	border-color:#DDDDDD;
+	border-style:solid;
+	text-align:left;
+	width:100%;
+}
+
+#answerbutton {
+	font-size:1.1em;
+	border-radius:3px;
+	background-color:#E6FAE6;
+	border-color:#D1E8D1;
+	border-style:solid;
+	text-align:center;
 }
 
 #SubTitle {
 	font-family:Georgia;
-	font-size:20px;
+	font-size:1.25em;
 }
 
 #container {
@@ -47,9 +123,9 @@
 	column-gap:1%;
 	grid-template-columns: 28% 17% 17% 17% 17%;
 	vertical-align:middle;
-	width:40%;
-	margin-bottom:5px;
-	height:3em;
+	width:100%;
+	margin-bottom:0.3em;
+	height:2.25em;
 }
 
 #topBar {
@@ -69,25 +145,6 @@
 	padding-left:2em;
 	overflow:auto;
 	height:11em;
-}
-
-#answer {
-	font-size:1.1em;
-	border-radius:3px;
-	background-color:#EEEEEE;
-	border-color:#DDDDDD;
-	border-style:solid;
-	text-align:center;
-	margin-bottom:0.5em;
-}
-
-#answerbutton {
-	font-size:1.1em;
-	border-radius:3px;
-	background-color:#E6FAE6;
-	border-color:#D1E8D1;
-	border-style:solid;
-	text-align:center;
 }
 
 #examplefood {
@@ -123,7 +180,7 @@
 	outline-color:#DDDDDD;
 	border-radius:1px;
 	overflow-wrap:anywhere;
-	height:3em;
+	height:inherit;
 	align-content:center;
 }
 
@@ -143,6 +200,19 @@ body {
 		width:100%;
 		column-gap:2%;
 		grid-template-columns: 24% 17% 17% 17% 17%;
+	}
+	#resultSection {
+		width:100%;
+		margin-left:0px;
+		margin-right:0px;
+	}
+	#answerSection {
+		padding-top:0em;
+		width:100%;
+	}
+	#inputSection {
+		width:60%;
+		margin-left:5%;
 	}
 	#mainHeading {
 		width:88%;
