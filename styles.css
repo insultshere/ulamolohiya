@@ -8,7 +8,7 @@
 }
 
 .foodOption {
-	min-height:1.4em; /*2.3em if easy mode 1.4em if hard*/
+	min-height:2.3em; /*2.3em if easy mode 1.4em if hard*/
 	font-size:1em;
 	width:100%;
 	display:block;
