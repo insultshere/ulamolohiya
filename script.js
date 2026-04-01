@@ -72,15 +72,17 @@ let chosenanswer = foods[number][0];
 let chosenfood = foods[number][1];
 let color = "red";
 let curlist = "";
-let guess = 7;
+
+//initialize guesses
+const maxGuess = 8;
+let guess = maxGuess;
 
 let curfoodid;
-let curingrid;
 let index=0;
 let redo=false;
 function input(ans) {
 	document.getElementById("demo").innerHTML = "&nbsp;";
-	ans = ans.toLowerCase();
+	ans = runningArr[0];
 	if(redo){
 		number = Math.floor(Math.random() * (foods.length))
 		chosenanswer = foods[number][0];
@@ -88,14 +90,14 @@ function input(ans) {
 		color = "red";
 		curlist = "";
 		index=0;
-		for (let A=0;A<35;A++){
+		for (let A=0;A<(5*maxGuess);A++){
 			curfoodid="food"+A;
 			document.getElementById(curfoodid).innerHTML = "&nbsp;<br>";
 			document.getElementById(curfoodid).style.backgroundColor = "#FFFFFF";
 			document.getElementById(curfoodid).style.outlineColor = "#DDDDDD";
 		}
 		redo=false;
-		guess=7;
+		guess=maxGuess;
 	}
 	if(trunc.indexOf(ans)==-1) {
 		document.getElementById("demo").innerHTML = "<b>Not a real food!</b>";
@@ -113,15 +115,15 @@ function input(ans) {
 			if(chosenfood.has(value)){
 				color = "LightGreen";
 			}
-			curingrid="food"+index;
+			curfoodid="food"+index;
 			index++
-			document.getElementById(curingrid).style.backgroundColor = color;
-			document.getElementById(curingrid).style.outlineColor = color;
-			document.getElementById(curingrid).innerHTML = value;
+			document.getElementById(curfoodid).style.backgroundColor = color;
+			document.getElementById(curfoodid).style.outlineColor = color;
+			document.getElementById(curfoodid).innerHTML = value;
 		})
 	}
 		if (ans == chosenanswer) {
-		document.getElementById("demo").innerHTML = "<span style='color:green'>Stellarific! Let's try again!<br><i>You did it in "+(7-guess)+" tries</span>";
+		document.getElementById("demo").innerHTML = "<span style='color:green'>Stellarific! Let's try again!<br><i>You did it in "+(maxGuess-guess)+" tries</span>";
 		redo=true;
 			} 
 		if (!(redo) & (guess == 0)) {
@@ -139,25 +141,34 @@ inputenter.addEventListener("keypress", function(event) {
   }
 });
 
-function readylist() {
+function usablelist() {
 	let curam="";
 	trunc.forEach(transcribe);
 	function transcribe(value,index){
-	  	curam += "("+(index+1)+") "
-		curam += value;
-		curam += "<br>";
+		curam += "<div class='foodOption' id=\'"+value+"\'>"+"<span class='foodTitle'>"+value+"</span><span class='foodDesc'><br>";
+		let curfood = foods[index][1];
+		let i = 0;
+		/*for (const x of curfood) {
+			i++
+  			curam += x;
+			if (i<4) {
+				curam += ", ";
+			}
+		}
+		curam += "</span>";*/
+		curam += "</div>";
 	}
 	return curam
 }
-let c = readylist()
-document.getElementById("food").innerHTML = c;
+c = usablelist()
+document.getElementById("foodList").innerHTML = c;
 
 function initlayout() {
 	let curam="";
 	let curid="";
 	let curidingr="";
 	let ind=0;
-	for (let i = 0; i < 7; i++) {
+	for (let i = 0; i < maxGuess; i++) {
 		curid = "food"+i;
 		curam+="<div id='container'>"
 		for (let j = 0; j < 5; j++) {
@@ -191,6 +202,33 @@ document.addEventListener("mousedown", function (event) {
 	document.getElementById("information").close()
 })
 
+const answerInput = document.getElementById("answer");
+let curval;
+let runningArr = [];
+answerInput.addEventListener("keyup", function (event) {
+	runningArr = [];
+	curval = answerInput.value;
+	trunc.forEach(check);
+});
+
+function check(value) {
+	for (let i = 0; i < curval.length; i++) {
+ 		if (value[i]==curval[i]) {
+			document.getElementById(value).style.display="block";
+			if (i==curval.length-1){
+				runningArr.push(value);
+			}
+		}else{
+			document.getElementById(value).style.display="none";	
+			break;
+		}
+	}
+	if (curval==""){
+		document.getElementById(value).style.display="none";
+	}
+};
+
+//button shenanigans
 let instbutton = document.getElementById("openInstructions");
 instbutton.addEventListener("mouseover", function () {
   instbutton.style.backgroundColor = "#EEEEEE";
