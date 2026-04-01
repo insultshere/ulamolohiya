@@ -165,14 +165,14 @@ function usablelist() {
 		curam += "<button onclick=\'input(\""+value+"\")\' class='foodOption' id=\'"+value+"\'>"+"<span class='foodTitle'>"+value+"</span><span class='foodDesc'><br>";
 		let curfood = foods[index][1];
 		let i = 0;
-		/*for (const x of curfood) {
+		for (const x of curfood) {
 			i++
   			curam += x;
 			if (i<4) {
 				curam += ", ";
 			}
 		}
-		curam += "</span>";*/
+		curam += "</span>";
 		curam += "</div>";
 	}
 	return curam
@@ -241,7 +241,7 @@ function check(value) {
 		}
 	}
 	if (curval==""){
-		document.getElementById(value).style.display="block";
+		document.getElementById(value).style.display="none";
 	}
 };
 
